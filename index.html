@@ -1,0 +1,32 @@
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta lang="pt-br">
+  <title>Exemplo de Classificação de Imagem</title>
+  <script src="https://unpkg.com/ml5@latest/dist/ml5.min.js"></script>
+
+</head>
+
+<body>
+  <div style="text-align: center;">
+  <h1>Classificação de imagem usando MobileNet.</h1>
+  
+    <img src="images/carro.jpg" id="image" width="300"/>
+
+    <p>O modelo MobileNet reconheceu esta imagem como:
+      <h2><span id="result">...</span></h2> 
+      com uma confiança de <b><span id="probability">...</span></b>
+    </p>
+  </div>
+
+    <hr>
+    <p>
+      Outras classificações: 
+      <br><b><span id="result1">...</span></b> com uma confiança de <b><span id="probability1">...</span></b> 
+      <br><b><span id="result2">...</span></b> com uma confiança de <b><span id="probability2">...</span></b>
+    </p>
+  <script src="sketch.js"></script>
+</body>
+
+</html>
