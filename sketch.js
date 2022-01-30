@@ -4,6 +4,7 @@
 // https://opensource.org/licenses/MIT
 
 const image = document.getElementById("image");
+const modelo = document.getElementById("modelo");
 const result = document.getElementById("result");
 const probability = document.getElementById("probability");
 const result1 = document.getElementById("result1");
@@ -11,9 +12,13 @@ const probability1 = document.getElementById("probability1");
 const result2 = document.getElementById("result2");
 const probability2 = document.getElementById("probability2");
 
+//modelos de classificação de imagem pré-treinados
+//1 = MobileNet, 2 = Darknet, 3 = Darknet-tiny, 4 = DoodleNet
+const model = defineModelo(4);
+
 // inicializa a classificação da imagem
 ml5
-  .imageClassifier("MobileNet")
+  .imageClassifier(model)
   .then((classifier) => classifier.classify(image))
   .then((results) => {
     exibeClassificacao(results);
@@ -34,4 +39,26 @@ function exibeClassificacao(resultado) {
 
   result2.innerText = resultado[2].label;
   probability2.innerText = percentage2;
+
+  modelo.innerText = model;
+}
+
+function defineModelo(id) {
+  var model;
+  switch (id) {
+    case 1:
+      model = "MobileNet";
+      break;
+    case 2:
+      model = "Darknet";
+      break;
+    case 3:
+      model = "Darknet-tiny";
+      break;
+    case 4:
+      model = "DoodleNet";
+      break;
+  }
+
+  return model;
 }
