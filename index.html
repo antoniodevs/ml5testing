@@ -11,21 +11,35 @@
 <body>
   <div style="text-align: center;">
   <h1>Classificação de imagem usando ml5.js.</h1>
-  
-    <img src="images/formiga.png" id="image" width="300"/>
 
+  <form action="" method="post" id="form-img">
+    <input type="file" id="img-upload" name="img-upload" accept="image/*">
+    <input type="submit">
+  </form>
+  
+  <span id="img-selected">
+  </span>
+
+  <div id="btn-classificar" style="display: none;">
+    <br><button onclick="classificaImagem()" id="btn-classificar">Classificar</button>
+  </div>
+
+  </div>
+
+  <div id="results" style="display: none;" >
     <p>O modelo <span id="modelo">...</span> reconheceu esta imagem como:
       <h2><span id="result">...</span></h2> 
       com uma confiança de <b><span id="probability">...</span></b>
     </p>
+  <hr>
+  <p>
+    Outras classificações: 
+    <br><b><span id="result1">...</span></b> com uma confiança de <b><span id="probability1">...</span></b> 
+    <br><b><span id="result2">...</span></b> com uma confiança de <b><span id="probability2">...</span></b>
+  </p>
   </div>
 
-    <hr>
-    <p>
-      Outras classificações: 
-      <br><b><span id="result1">...</span></b> com uma confiança de <b><span id="probability1">...</span></b> 
-      <br><b><span id="result2">...</span></b> com uma confiança de <b><span id="probability2">...</span></b>
-    </p>
+  <script src="file.js"></script>
   <script src="sketch.js"></script>
 </body>
 
