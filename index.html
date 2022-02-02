@@ -24,6 +24,16 @@
     <br><button onclick="trocaImagem()">Trocar imagem</button>
   </div>
 
+  <div id="modeloML5" style="display: none;">
+    <p>Selecione o método de classificação:</p>
+    <select id="select-modelo">
+      <option value="MobileNet">MobileNet</option>
+      <option value="Darknet">DarkNet</option>
+      <option value="Darknet-tiny">DarkNet-tiny</option>
+      <option value="DoodleNet">DoodleNet</option>
+    </select>
+  </div>
+
   <div id="btn-classificar" style="display: none;">
     <br><button onclick="classificaImagem()">Classificar</button>
   </div>
@@ -33,6 +43,9 @@
   </div>
 
   <div id="results" style="display: none;" >
+    <div id="loading" style="display: none;"> Classificando...</div>
+
+    <div id="classificacoes" style="display: none;">
     <p>O modelo <span id="modelo">...</span> reconheceu esta imagem como:
       <h2><span id="result">...</span></h2> 
       com uma confiança de <b><span id="probability">...</span></b>
@@ -43,6 +56,7 @@
     <br><b><span id="result1">...</span></b> com uma confiança de <b><span id="probability1">...</span></b> 
     <br><b><span id="result2">...</span></b> com uma confiança de <b><span id="probability2">...</span></b>
   </p>
+  </div>
   </div>
 
   <script src="file.js"></script>

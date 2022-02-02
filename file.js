@@ -2,12 +2,20 @@ const form = document.getElementById("form-img");
 var exibeImagem = document.getElementById("img-selected");
 const classificar = document.getElementById("btn-classificar");
 const btnUploadImage = document.getElementById("btn-reload");
+const modeloML5 = document.getElementById("modeloML5");
+const results = document.getElementById("results");
+const loading = document.getElementById("loading");
+const classificacoes = document.getElementById("classificacoes");
 var pathImagem;
 var imageClassifier;
 var formUpload = true;
 var btnClassificar = true;
 var uploadImage = true;
 var imgUpload = true;
+var exibeModelo = true;
+var exibeResults = true;
+var exibeLoading = true;
+var exibeClassificacoes = true;
 
 form.addEventListener("submit", (event) => {
   event.preventDefault();
@@ -18,10 +26,10 @@ form.addEventListener("submit", (event) => {
     "<img src='images/" + nomeImagem + "' id='image' width='400'/>";
   exibeImagem.innerHTML = imageClassifier;
 
-  // classificar.style.display = "inline";
   displayElement(exibeImagem, imgUpload);
   displayElement(classificar, btnClassificar);
   displayElement(btnUploadImage, uploadImage);
+  displayElement(modeloML5, exibeModelo);
   displayElement(form, !formUpload);
 });
 
@@ -37,6 +45,8 @@ function trocaImagem() {
   displayElement(form, formUpload);
   displayElement(classificar, !btnClassificar);
   displayElement(btnUploadImage, !uploadImage);
+  displayElement(modeloML5, !exibeModelo);
+  displayElement(results, !exibeResults);
 }
 
 function displayElement(element, display) {
