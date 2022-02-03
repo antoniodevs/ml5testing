@@ -1,22 +1,3 @@
-const form = document.getElementById("form-img");
-var exibeImagem = document.getElementById("img-selected");
-const classificar = document.getElementById("btn-classificar");
-const btnUploadImage = document.getElementById("btn-reload");
-const modeloML5 = document.getElementById("modeloML5");
-const results = document.getElementById("results");
-const loading = document.getElementById("loading");
-const classificacoes = document.getElementById("classificacoes");
-var pathImagem;
-var imageClassifier;
-var formUpload = true;
-var btnClassificar = true;
-var uploadImage = true;
-var imgUpload = true;
-var exibeModelo = true;
-var exibeResults = true;
-var exibeLoading = true;
-var exibeClassificacoes = true;
-
 form.addEventListener("submit", (event) => {
   event.preventDefault();
   pathImagem = form.elements["img-upload"].value;

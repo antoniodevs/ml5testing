@@ -3,16 +3,6 @@
 // This software is released under the MIT License.
 // https://opensource.org/licenses/MIT
 
-const result = document.getElementById("result");
-const probability = document.getElementById("probability");
-const result1 = document.getElementById("result1");
-const probability1 = document.getElementById("probability1");
-const result2 = document.getElementById("result2");
-const probability2 = document.getElementById("probability2");
-const modelo = document.getElementById("modelo");
-var selectModelo;
-var valueModelo;
-
 function classificaImagem() {
   displayElement(classificacoes, !exibeClassificacoes);
   displayElement(loading, exibeLoading);

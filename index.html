@@ -5,62 +5,85 @@
   <meta lang="pt-br">
   <title>Exemplo de Classificação de Imagem</title>
   <script src="https://unpkg.com/ml5@latest/dist/ml5.min.js"></script>
+  <link rel="stylesheet" type="text/css" href="style.css">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
 
 </head>
 
 <body>
-  <div style="text-align: center;">
-  <h1>Classificação de imagem usando ml5.js.</h1>
+  <div class="container">
+    <div class="row align-items-start"  style="text-align: center;" >
 
-  <form action="" method="post" id="form-img">
-    <input type="file" id="img-upload" name="img-upload" accept="image/*" required>
-    <input type="submit" id="btn-submit-img">
-  </form>
+      <h1>Classificação de imagem usando ml5.js.</h1>
+
+      <form action="" method="post" id="form-img">
+        <input type="file" id="img-upload" name="img-upload" accept="image/*" required>
+        <input type="submit" id="btn-submit-img" class="btn btn-primary">
+      </form>
+
+      <!-- exibição da imagem e ações de classificacao-->
+     
+        <span id="img-selected">
+        </span>
+
+        <div id="modeloML5" style="display: none;">
+          <h4>Selecione o método de classificação:</h4>
+          <select id="select-modelo" class="form-select form-select-lg mb-6">
+            <option value="MobileNet">MobileNet</option>
+            <option value="Darknet">DarkNet</option>
+            <option value="Darknet-tiny">DarkNet-tiny</option>
+            <option value="DoodleNet">DoodleNet</option>
+          </select>
+        </div>
+
+        <div class="group-btn">
+          <button type="button" onclick="trocaImagem()" class="btn btn-secondary btn-lg" id="btn-reload" style="display: none;">Trocar imagem</button>
+          <button type="button" onclick="classificaImagem()"  class="btn btn-primary btn-lg" id="btn-classificar" style="display: none;">Classificar</button> 
+        </div>
+
+
+      <!-- exibição dos resultados da classificação-->
+
+        <div id="results" style="display: none;" >
+          <div id="loading" style="display: none;"> Classificando...</div>
+
+          <div id="classificacoes" style="display: none;">
+            <h4>O modelo <span id="modelo">...</span> reconheceu esta imagem como:</h4>
+            <table class="table">
+              <thead>
+                <tr>
+                  <th scope="col">#</th>
+                  <th scope="col">Descrição</th>
+                  <th scope="col">Confiança</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <th scope="row">1</th>
+                  <td><span id="result">...</span></td>
+                  <td><span id="probability">...</span></td>
+                </tr>
+                <tr>
+                  <th scope="row">2</th>
+                  <td><span id="result1">...</span></td>
+                  <td><span id="probability1">...</span></td>
+                </tr>
+                <tr>
+                  <th scope="row">3</th>
+                  <td><span id="result2">...</span></td>
+                  <td><span id="probability2">...</span></td>
+                </tr>
+              </tbody>
+            </table>
+        </div>
+        </div>
+    </div>
+  </div>
   
-  <span id="img-selected">
-  </span>
-
-  <div id="btn-reload" style="display: none;">
-    <br><button onclick="trocaImagem()">Trocar imagem</button>
-  </div>
-
-  <div id="modeloML5" style="display: none;">
-    <p>Selecione o método de classificação:</p>
-    <select id="select-modelo">
-      <option value="MobileNet">MobileNet</option>
-      <option value="Darknet">DarkNet</option>
-      <option value="Darknet-tiny">DarkNet-tiny</option>
-      <option value="DoodleNet">DoodleNet</option>
-    </select>
-  </div>
-
-  <div id="btn-classificar" style="display: none;">
-    <br><button onclick="classificaImagem()">Classificar</button>
-  </div>
-
-
-
-  </div>
-
-  <div id="results" style="display: none;" >
-    <div id="loading" style="display: none;"> Classificando...</div>
-
-    <div id="classificacoes" style="display: none;">
-    <p>O modelo <span id="modelo">...</span> reconheceu esta imagem como:
-      <h2><span id="result">...</span></h2> 
-      com uma confiança de <b><span id="probability">...</span></b>
-    </p>
-  <hr>
-  <p>
-    Outras classificações: 
-    <br><b><span id="result1">...</span></b> com uma confiança de <b><span id="probability1">...</span></b> 
-    <br><b><span id="result2">...</span></b> com uma confiança de <b><span id="probability2">...</span></b>
-  </p>
-  </div>
-  </div>
-
+  <script src="variables.js"></script>
   <script src="file.js"></script>
-  <script src="sketch.js"></script>
+  <script src="classify.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
 </body>
 
 </html>

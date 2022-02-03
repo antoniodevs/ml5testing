@@ -1,0 +1,28 @@
+const result = document.getElementById("result");
+const probability = document.getElementById("probability");
+const result1 = document.getElementById("result1");
+const probability1 = document.getElementById("probability1");
+const result2 = document.getElementById("result2");
+const probability2 = document.getElementById("probability2");
+const modelo = document.getElementById("modelo");
+var selectModelo;
+var valueModelo;
+
+const form = document.getElementById("form-img");
+var exibeImagem = document.getElementById("img-selected");
+const classificar = document.getElementById("btn-classificar");
+const btnUploadImage = document.getElementById("btn-reload");
+const modeloML5 = document.getElementById("modeloML5");
+const results = document.getElementById("results");
+const loading = document.getElementById("loading");
+const classificacoes = document.getElementById("classificacoes");
+var pathImagem;
+var imageClassifier;
+var formUpload = true;
+var btnClassificar = true;
+var uploadImage = true;
+var imgUpload = true;
+var exibeModelo = true;
+var exibeResults = true;
+var exibeLoading = true;
+var exibeClassificacoes = true;
